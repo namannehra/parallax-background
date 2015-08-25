@@ -1,0 +1,85 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-flex-layout/classes/iron-flex-layout.html">
+<link rel="import" href="../paper-styles/default-theme.html">
+<!--
+An element providing parallax background.
+Balls are created at random position and move at different speeds when the content inside the element is scrolled.
+Smaller balls move faster.
+Vertical position of balls is calculated from the scroll height of content inside the element at initialization.
+
+Example:
+
+		<style is="custom-style">
+			html, body {
+				height: 100%;
+			}
+			body {
+				margin: 0;
+				background-color: #2196F3;
+			}
+			parallax-background {
+				height: 100%;
+				--parallax-background-balls: {
+					background: white;
+				}
+			}
+			#test {
+				height: 9600px;
+			}
+		</style>
+		...
+		<parallax-background>
+			<div id="test"></div>
+		</parallax-background>
+
+__Important:__ 'update' method should be called if any property is changed after the element is attached.
+
+Example:
+
+		var parallax = document.querySelector('parallax-background');
+		parallax.number = 69;
+		parallax.update();
+
+__Important:__ The `paper-header-panel` will not display if its parent does not have a height.
+
+### Styling
+
+The following custom properties and mixins are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--parallax-background-balls` | Mixin applied to balls | `{}`
+
+@demo
+-->
+<dom-module id="parallax-background">
+	<style>
+		:host {
+			display: block;
+			position: relative;
+		}
+		#background {
+			overflow: hidden;
+			z-index: -1;
+		}
+		.ball {
+			background: var(--default-primary-color);
+			border-radius: 50%;
+			position: absolute;
+			opacity: 0.3;
+			will-change: transform;
+			@apply(--parallax-background-balls);
+		}
+		#content {
+			height: 100%;
+			overflow: auto;
+		}
+	</style>
+	<template>
+		<div id="background" class="fit"></div>
+		<div id="content" on-scroll="_scroll">
+			<content></content>
+		</div>
+	</template>
+</dom-module>
+<script src="parallax-background.js"></script>

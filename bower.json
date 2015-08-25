@@ -1,0 +1,30 @@
+{
+  "name": "parallax-background",
+  "version": "0.1.0",
+  "authors": [
+    "Naman Nehra <naman.nehra98@gmail.com>"
+  ],
+  "description": "An element providing parallax background.",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "parallax"
+  ],
+  "main": "parallax-background.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/namannehra/parallax-background/",
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~1.1.1",
+    "paper-styles": "PolymerElements/paper-styles#~1.0.11",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#~1.0.3"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#~1.0.4"
+  }
+}
